@@ -7,6 +7,10 @@ Golang remote data update with timer lib. You can update config auto.
 - http api to load data
 - sql api to load data. use [xorm](github.com/go-xorm/xorm) support [Mysql](github.com/go-sql-driver/mysql),[Postgres](github.com/lib/pq),[SQLite3](github.com/mattn/go-sqlite3),[MsSql](github.com/denisenkom/go-mssqldb)
 
+## Install
+
+`go get github.com/yale8848/DataUpdater@v0.1.0 `
+
 ## Demo
 
  - http
