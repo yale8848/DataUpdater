@@ -3,6 +3,8 @@ package dataupdater
 
 import (
 	"crypto/md5"
+	"fmt"
+	"github.com/pkg/errors"
 	"net/url"
 	"time"
 )
@@ -37,6 +39,11 @@ func (du *DataUpdate) SetDuration(dur time.Duration)  {
 }
 func (du *DataUpdate)ErrListener(errFun ErrFunc){
 	du.errFun =errFun
+}
+func (du *DataUpdate)Recover(){
+	if err := recover(); err != nil &&du.errFun!=nil{
+		du.errFun(errors.New(fmt.Sprintf("%v",err)))
+	}
 }
 func (du *DataUpdate) canUpdate(data []byte) bool{
 

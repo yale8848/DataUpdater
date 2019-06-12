@@ -8,4 +8,5 @@ require (
 	github.com/go-xorm/xorm v0.7.1
 	github.com/lib/pq v1.1.1
 	github.com/mattn/go-sqlite3 v1.10.0
+	github.com/pkg/errors v0.8.0
 )

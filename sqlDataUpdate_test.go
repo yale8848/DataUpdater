@@ -13,6 +13,7 @@ type tt struct {
 func TestSQLDataUpdate_Start(t *testing.T) {
 
 	ch := make(chan bool)
+
 	to:=make([]*tt,0)
 	sdu:=NewSQLDataUpdate("mysql","xxx?charset=utf8","select * from xxx",
 		&to)
@@ -27,4 +28,5 @@ func TestSQLDataUpdate_Start(t *testing.T) {
 	})
 	sdu.Start()
 	<-ch
+
 }

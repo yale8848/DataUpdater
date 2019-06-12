@@ -80,6 +80,8 @@ func (hdu *HttpDataUpdate) Start() {
 	}
 	hdu.do()
 	go func() {
+		defer hdu.Recover()
+
 		start := false
 		tm := time.NewTicker(hdu.duration)
 		for {

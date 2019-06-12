@@ -8,6 +8,7 @@ import (
 	"github.com/go-xorm/xorm"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
+	"time"
 )
 
 type SQLDataUpdate struct {
@@ -58,6 +59,24 @@ func (du *SQLDataUpdate)do(){
 	}
 }
 func (du *SQLDataUpdate)Start()   {
+
 	du.do()
+
+	go func() {
+
+		defer du.Recover()
+
+		start := false
+		tm := time.NewTicker(du.duration)
+		for {
+			<-tm.C
+			if start {
+				continue
+			}
+			start = true
+			du.do()
+			start = false
+		}
+	}()
 }
 
