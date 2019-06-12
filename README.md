@@ -9,7 +9,7 @@ Golang remote data update with timer lib. You can update config auto.
 
 ## Install
 
-`go get github.com/yale8848/DataUpdater@v0.1.0 `
+`go get github.com/yale8848/DataUpdater@v0.1.1 `
 
 ## Demo
 
